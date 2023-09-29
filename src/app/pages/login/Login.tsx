@@ -49,7 +49,7 @@ export const Login = () => {
     onKeyDown={e => e.key === 'Enter' ? inputPasswordRef.current?.focus() : undefined} />
   </label> */}
 
-        <InputLogin type="password" label="Senha" value={password} onChange={newValue => setPassword(newValue)} />
+        <InputLogin type="password" label="Senha" value={password} ref={inputPasswordRef} onChange={newValue => setPassword(newValue)} />
         {/* <label>
   <span>Senha</span>
   <input type="password" ref={inputPasswordRef} value={password} onChange={e => setPassword(e.target.value)} />
