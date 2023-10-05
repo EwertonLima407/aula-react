@@ -1,8 +1,6 @@
 import { createContext } from "react";
 
-interface IUsuarioLogadoProviderProps {
-  children: React.ReactNode
-}
+
 
 export const IUsuarioLogado = () => {
 
@@ -12,8 +10,11 @@ interface IUsuarioLogadoContexteData {
   nomeDoUsuario: string;
 }
 
+interface IUsuarioLogadoProviderProps {
+  children: React.ReactNode
+}
 
-const UsuarioLogadoContext = createContext<IUsuarioLogadoContexteData>({} as IUsuarioLogadoContexteData);
+export const UsuarioLogadoContext = createContext<IUsuarioLogadoContexteData>({} as IUsuarioLogadoContexteData);
 
 export const UsuarioLogadoProvider: React.FC<IUsuarioLogadoProviderProps> = ({ children }) => {
   return (
