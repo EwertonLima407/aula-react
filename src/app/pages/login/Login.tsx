@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { InputLogin } from "./components/InputLogin";
+import { ButtonLogin } from "./components/ButtonLogin";
 
 
 export const Login = () => {
@@ -42,22 +43,25 @@ export const Login = () => {
       <form>
         <p>Quantidade de letra de email: {emailLength}   </p>
 
-        <InputLogin label="Email" value={email} onChange={newValue => setEmail(newValue)} onPressEnter={() => inputPasswordRef.current?.focus()} />
-        {/*  <label>
-    <span>Email</span>
-    <input value={email} onChange={e => setEmail(e.target.value)}
-    onKeyDown={e => e.key === 'Enter' ? inputPasswordRef.current?.focus() : undefined} />
-  </label> */}
+        <InputLogin
+          label="Email"
+          value={email}
+          onChange={newValue => setEmail(newValue)}
+          onPressEnter={() => inputPasswordRef.current?.focus()} />
 
-        <InputLogin type="password" label="Senha" value={password} ref={inputPasswordRef} onChange={newValue => setPassword(newValue)} />
-        {/* <label>
-  <span>Senha</span>
-  <input type="password" ref={inputPasswordRef} value={password} onChange={e => setPassword(e.target.value)} />
-</label> */}
 
-        <button type="button" onClick={handleEntrar}>
-          Entrar
-        </button>
+        <InputLogin
+          type="password"
+          label="Senha"
+          value={password}
+          ref={inputPasswordRef}
+          onChange={newValue => setPassword(newValue)} />
+
+        <ButtonLogin type="button" onClick={handleEntrar} >Entrar</ButtonLogin>
+
+        {/*  <ButtonLogin type="button" onClick={handleEntrar} >Cadastre-se</ButtonLogin> */}
+
+
       </form>
     </div>
   )
