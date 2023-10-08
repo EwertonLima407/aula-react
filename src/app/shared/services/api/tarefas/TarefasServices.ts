@@ -6,7 +6,7 @@ export interface ITarefa {
   title: string;
   isCompleted: boolean;
 }
-const getAll = async (): Promise<ITarefa[] | ApiException> => { 
+const getAll = async (): Promise<ITarefa [] | ApiException> => { 
   try {
     const { data} = await Api().get('/tarefas')
     return data;
@@ -15,7 +15,7 @@ const getAll = async (): Promise<ITarefa[] | ApiException> => {
   }
 };
 
-const create = async (dataToCreate: Omit<ITarefa, 'id'>): Promise<ITarefa[] | ApiException> => { 
+const create = async (dataToCreate: Omit<ITarefa, 'id'>): Promise<ITarefa | ApiException> => { 
    try {
     const { data} = await Api().post('/tarefas',dataToCreate)
     return data;
@@ -33,7 +33,7 @@ const getById = async (id:number) => {
   }
 };
 
-const updateById = async (id: string, dataToUpdate: ITarefa): Promise<ITarefa[] | ApiException> => {
+const updateById = async (id: string, dataToUpdate: ITarefa): Promise<ITarefa | ApiException> => {
   try {
     const { data} = await Api().put(`/tarefas/${id}`, dataToUpdate)
     return data;
